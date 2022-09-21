@@ -18,13 +18,10 @@ app.use(express.static("public"));
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
-
+// GET Route for static notes page
 app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "public/notes.html"))
 );
-
-// GET route for all the notes
-app.get("/api/notes", (req, res) => res.json(db));
 
 // GET request for notes
 app.get("/api/notes", (req, res) => {
@@ -32,14 +29,14 @@ app.get("/api/notes", (req, res) => {
   res.status(200).json(db);
 });
 
-// Fetch request to add a new note
-const addNote = (note) => {
-  fetch("/api/notes", {
-    method: "POST",
-    headers: { "Content-type": "application/json" },
-    body: JSON.stringify(note),
-  });
-};
+// // Fetch request to add a new note
+// const addNote = (note) => {
+//   fetch("/api/notes", {
+//     method: "POST",
+//     headers: { "Content-type": "application/json" },
+//     body: JSON.stringify(note),
+//   });
+// };
 
 // POST request to add a note
 app.post("/api/notes", (req, res) => {
@@ -70,7 +67,7 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
-// GET request for a single review
+// GET request for a single note
 app.get("/api/notes/:note_id", (req, res) => {
   if (req.params.note_id) {
     console.info(`${req.method} request received to get a single a note`);
@@ -91,14 +88,14 @@ app.get("/api/notes/:note_id", (req, res) => {
 // DELETE request to delete a note
 app.delete("/api/notes/:note_id", (req, res) => {
   if (req.body && req.params.note_id) {
-    console.info(`${req.method} request received to delete a note`);
+    console.info(`${req.method} request received to GET a note`);
     const noteId = req.params.note_id;
     for (let i = 0; i < notes.length; i++) {
       const currentNote = notes[i];
       if (currentNote.note_id === noteId) {
         fetch("/api/notes", {
           method: "DELETE",
-          headers: { title: "text" },
+          headers: { "Content-type": "application/json" },
           body: JSON.stringify(db),
         });
         return;
