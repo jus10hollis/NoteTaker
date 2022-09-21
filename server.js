@@ -67,6 +67,8 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
+// Not sure why notes aren't pushing to a list of elements in the left column
+
 // GET request for a single note
 app.get("/api/notes/:note_id", (req, res) => {
   if (req.params.note_id) {
