@@ -24,10 +24,10 @@ app.get("/notes", (req, res) =>
 );
 
 // GET request for notes
-app.get("/api/notes", (req, res) => {
-  console.info(`GET /api/notes`);
-  res.status(200).json(db);
-});
+// app.get("/api/notes", (req, res) => {
+//   console.info(`GET /api/notes`);
+//   res.status(200).json(db);
+// });
 
 // // Fetch request to add a new note
 // const addNote = (note) => {
