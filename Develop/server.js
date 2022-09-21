@@ -47,7 +47,7 @@ app.post("/api/notes", (req, res) => {
   const { db } = req.body;
 
   // If all the required properties are present
-  if (db) {
+  if (title && text) {
     // Variable for the object we will save
     const newNote = {
       title,
