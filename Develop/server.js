@@ -7,7 +7,7 @@ const notes = require("./db/notes");
 
 const app = express();
 const db = require("./db/db.json");
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -106,6 +106,12 @@ app.delete("/api/notes/:note_id", (req, res) => {
     res.status(404).json("Note ID not found");
   }
 });
+
+app.get("*", (req, res) =>
+  res.send(
+    `Make a GET request using Insomnia to <a href="http://localhost:${PORT}/api/notes">http://localhost:${PORT}/api/notes</a>`
+  )
+);
 
 app.listen(PORT, () =>
   console.log(`NoteTaker app listening at http://localhost:${PORT}`)
