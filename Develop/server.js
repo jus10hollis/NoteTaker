@@ -29,14 +29,14 @@ app.get("/api/notes", (req, res) => res.json(db));
 // GET request for notes
 app.get("/api/notes", (req, res) => {
   console.info(`GET /api/notes`);
-  res.status(200).json(notes);
+  res.status(200).json(db);
 });
 
 // Fetch request to add a new note
 const addNote = (note) => {
   fetch("/api/notes", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-type": "application/json" },
     body: JSON.stringify(note),
   });
 };
@@ -47,13 +47,14 @@ app.post("/api/notes", (req, res) => {
   console.info(`${req.method} request received to add a note`);
 
   // Destructuring assignment for the items in req.body
-  const { note } = req.body;
+  const { db } = req.body;
 
   // If all the required properties are present
-  if (note) {
+  if (db) {
     // Variable for the object we will save
     const newNote = {
-      note,
+      title,
+      text,
       note_id: uuid(),
     };
 
@@ -97,8 +98,8 @@ app.delete("/api/notes/:note_id", (req, res) => {
       if (currentNote.note_id === noteId) {
         fetch("/api/notes", {
           method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(note),
+          headers: { title: "text" },
+          body: JSON.stringify(db),
         });
         return;
       }

@@ -2,19 +2,23 @@ const uuid = require("../helpers/uuid");
 
 const notes = [
   {
-    note: "Order additional supplies for off-site retreat",
+    title: "Supplies",
+    text: "Order additional supplies for off-site retreat",
     note_id: uuid(),
   },
   {
-    note: "Schedule call with developer",
+    title: "Developer",
+    text: "Schedule call with developer",
     note_id: uuid(),
   },
   {
-    note: "Contact Alex to set up a meeting next week",
+    title: "Meeting",
+    text: "Contact Alex to set up a meeting next week",
     note_id: uuid(),
   },
   {
-    note: "Call insurance agent to discuss policy",
+    title: "Insurance",
+    text: "Call insurance agent to discuss policy",
     note_id: uuid(),
   },
 ];
