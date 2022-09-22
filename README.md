@@ -12,6 +12,8 @@ Developers can deploy the entire application to Heroku.
 Once authentication is complete type
 <c>heroku open</c>
 
+Deployed app: https://boiling-forest-09998.herokuapp.com/
+
 ## Usage
 
 With this note-taking application</br>
